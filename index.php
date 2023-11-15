@@ -41,11 +41,11 @@ function mostrarMenu($articulos)
     foreach ($pizzas as $pizza) {
         echo $pizza->getNombre() . "<br/>";
     }
-    echo "<br><h2>Bebidas</h2>";
+    echo "<h2>Bebidas</h2>";
     foreach ($bebidas as $bebida) {
         echo $bebida->getNombre() . "<br/>";
     }
-    echo "<br><h2>Otros</h2>";
+    echo "<h2>Otros</h2>";
     foreach ($otros as $otro) {
         echo $otro->getNombre() . "<br/>";
     }
@@ -60,7 +60,7 @@ function mostrarMasVendidos($articulos)
     });
 
     //Con esto lo que hacemos es sacar los 3 más vendidos, limitando a esas vueltas el bucle for aunque con la funcion usort ordenasemos toda la lista
-    echo "<h2>Los más vendidos</h2><br>";
+    echo "<h2>Los más vendidos</h2>";
     for ($i = 0; $i < 3; $i++) {
         echo $articulos[$i]->getNombre() . " - Vendidos: " . $articulos[$i]->getContador() . "<br>";
     }
