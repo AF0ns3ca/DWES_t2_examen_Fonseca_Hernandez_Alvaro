@@ -1,4 +1,8 @@
 <?php
+//Autor: Alvaro Fonseca Hernandez
+//GitHub: https://github.com/AF0ns3ca/DWES_t2_examen_Fonseca_Hernandez_Alvaro.git
+
+//Archivo que funcionara como controlador
 require "Articulo.php";
 require "Pizza.php";
 require "Bebida.php";
@@ -19,17 +23,20 @@ $articulos = [
 
 // Ejemplo de uso
 
-function mostrarMenu($articulos) {
+function mostrarMenu($articulos)
+{
     //utilizamos estos filtros para crear listas que tengan solo los elementos pertenecientes a cada clase
-    $pizzas = array_filter($articulos, function($item) {
+    $pizzas = array_filter($articulos, function ($item) {
         return $item instanceof Pizza;
     });
-    $bebidas = array_filter($articulos, function($item) {
+    $bebidas = array_filter($articulos, function ($item) {
         return $item instanceof Bebida;
     });
-    $otros = array_filter($articulos, function($item) {
+    $otros = array_filter($articulos, function ($item) {
         return !($item instanceof Pizza) && !($item instanceof Bebida);
     });
+
+    //Ahora imprimimos por pantalla las diferentes listas resultantes de los anteriores filtros que serán cada uno de los diferentes tipos de elementos
     echo "<h2>Pizzas</h2>";
     foreach ($pizzas as $pizza) {
         echo $pizza->getNombre() . "<br/>";
@@ -42,11 +49,13 @@ function mostrarMenu($articulos) {
     foreach ($otros as $otro) {
         echo $otro->getNombre() . "<br/>";
     }
-    
 }
 
-function mostrarMasVendidos($articulos) {
-    usort($articulos, function($a, $b) {
+function mostrarMasVendidos($articulos)
+{
+
+    //Utilizamos la funcion usort para ordenar dentro de articulos los elementos segun el criterio que decidamos, en este caso ordenamos por contador ya que queremos saber los más vendidos, que seran aquellos que tengan el valor del contador mas alto
+    usort($articulos, function ($a, $b) {
         return $b->getContador() - $a->getContador();
     });
 
@@ -62,16 +71,24 @@ function mostrarMasVendidos($articulos) {
     // }
 }
 
-function mostrarMasLucrativos($articulos) {
-    usort($articulos, function($a, $b) {
-        $beneficioB = ($b->getPrecio()*$b->getContador()) - ($b->getCoste()*$b->getContador());
-        $beneficioA = ($a->getPrecio()*$a->getContador()) - ($a->getCoste()*$a->getContador());
+function mostrarMasLucrativos($articulos)
+{
+
+    //Utilizamos la funcion usort para ordenar dentro de articulos los elementos segun el criterio que decidamos, en este caso ordenamos por beneficio
+
+    usort($articulos, function ($a, $b) {
+        //Para obtener el beneficio tenemos que multiplicar el precio por el contador y restarle el resultado de multiplicar el coste por el contador, de ese modo restamos la ganancia total del coste total de cada producto y nos queda el beneficio
+        $beneficioB = ($b->getPrecio() * $b->getContador()) - ($b->getCoste() * $b->getContador());
+        $beneficioA = ($a->getPrecio() * $a->getContador()) - ($a->getCoste() * $a->getContador());
         return $beneficioB - $beneficioA;
     });
-    
+
+
+    //Imprimimos por pantalla con el formato que queremos la lista de articulos que ahora esta ordenada segun el beneficio
     echo "<h2>¡Los más lucrativos!</h2>";
     foreach ($articulos as $item) {
-        $beneficio = ($item->getPrecio()*$item->getContador()) - ($item->getCoste()*$item->getContador());
+        //Hacemos la variable beneficio para no tener que escribir toda la expresion varias veces
+        $beneficio = ($item->getPrecio() * $item->getContador()) - ($item->getCoste() * $item->getContador());
         echo $item->getNombre() . " - Beneficio: " . $beneficio . "€<br>";
     }
 }

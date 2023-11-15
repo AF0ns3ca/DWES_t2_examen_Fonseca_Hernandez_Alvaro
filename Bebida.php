@@ -1,9 +1,24 @@
 <?php
-// Modelo. Clase libro que se instanciará en la vista y a partir de la cual se generaran los objetos libro
+//Autor: Alvaro Fonseca Hernandez
+//GitHub: https://github.com/AF0ns3ca/DWES_t2_examen_Fonseca_Hernandez_Alvaro.git
+
+// Clase hija que hereda de Articulos
 class Bebida extends Articulo{
     private $alcoholica;
     public function __construct($nombre, $coste, $precio, $contador, $alcoholica) {
         parent::__construct($nombre, $coste, $precio, $contador);
+        $this->alcoholica = $alcoholica;
+    }
+
+    //Getter del parámetro que no hereda de la clase padre
+    public function getAlcoholica()
+    {
+        return $this->alcoholica;
+    }
+
+    //Setter del parámetro que no hereda de la clase padre
+    public function setAlcoholica($alcoholica)
+    {
         $this->alcoholica = $alcoholica;
     }
 

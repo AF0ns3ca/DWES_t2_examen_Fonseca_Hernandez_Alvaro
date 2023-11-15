@@ -1,15 +1,34 @@
 <?php
-// Modelo. Clase libro que se instanciará en la vista y a partir de la cual se generaran los objetos libro
-class Pizza extends Articulo{
+//Autor: Alvaro Fonseca Hernandez
+//GitHub: https://github.com/AF0ns3ca/DWES_t2_examen_Fonseca_Hernandez_Alvaro.git
+
+// Clase hija que hereda de Articulos
+class Pizza extends Articulo
+{
     private $ingredientes;
-    public function __construct($nombre, $coste, $precio, $contador, $ingredientes) {
+
+
+    public function __construct($nombre, $coste, $precio, $contador, $ingredientes)
+    {
         parent::__construct($nombre, $coste, $precio, $contador);
         $this->ingredientes = $ingredientes;
     }
 
-    /*Se sobreescribe el metodo toString de la clase padre añadiendo la propiedad disponible donde corresponde*/
-    public function __toString() {
-        return parent::__toString() ." Ingredientes: $this->ingredientes<br>";
+    //Getter del parámetro que no hereda de la clase padre
+    public function getIngredientes()
+    {
+        return $this->ingredientes;
+    }
+
+    //Setter del parámetro que no hereda de la clase padre
+    public function setIngredientes($ingredientes)
+    {
+        $this->ingredientes = $ingredientes;
+    }
+
+    /*Se sobreescribe el metodo toString de la clase padre añadiendo el parametro nuevo donde corresponde*/
+    public function __toString()
+    {
+        return parent::__toString() . " Ingredientes: $this->ingredientes<br>";
     }
 }
-?>

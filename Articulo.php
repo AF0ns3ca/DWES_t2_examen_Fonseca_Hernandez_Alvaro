@@ -1,5 +1,8 @@
 <?php
-// Modelo. Clase padre que sera heredada por las clases hijas libro y dvd
+//Autor: Alvaro Fonseca Hernandez
+//GitHub: https://github.com/AF0ns3ca/DWES_t2_examen_Fonseca_Hernandez_Alvaro.git
+
+// Clase Padre
 class Articulo
 {
     private $nombre;
@@ -7,6 +10,7 @@ class Articulo
     private $precio;
     private $contador;
 
+    //Constructor por parametros de la clase padre
     public function __construct($nombre, $coste, $precio, $contador)
     {
         $this->nombre = $nombre;
@@ -15,7 +19,7 @@ class Articulo
         $this->contador = $contador;
     }
 
-    // Getters
+    // Getters para obtener los valores si fuese necesario
     public function getNombre()
     {
         return $this->nombre;
@@ -36,7 +40,7 @@ class Articulo
         return $this->contador;
     }
 
-    // Setters
+    // Setters para modificar los valores si fuese necesario
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
@@ -57,6 +61,7 @@ class Articulo
         $this->contador = $contador;
     }
 
+    //Metodo toString en caso de que fuese necesario imprimir todo el objeto
     public function __toString()
     {
         return "Nombre: " . $this->nombre . ", Coste: " . $this->coste . ", Precio: " . $this->precio . ", Contador: " . $this->contador;

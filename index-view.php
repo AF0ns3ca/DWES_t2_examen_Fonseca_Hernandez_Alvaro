@@ -9,10 +9,10 @@
 
 <body>
     <?php
-    echo "<h1>Nuestro Menu</h1>";
-    mostrarMenu($articulos);
-    mostrarMasVendidos($articulos);
-    mostrarMasLucrativos($articulos);
+        echo "<h1>Nuestro Menu</h1>";
+        mostrarMenu($articulos);
+        mostrarMasVendidos($articulos);
+        mostrarMasLucrativos($articulos);
     ?>
 </body>
 
