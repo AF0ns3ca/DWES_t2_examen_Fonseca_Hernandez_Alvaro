@@ -9,7 +9,7 @@
 
 <body>
     <?php
-        echo "<h1>Nuestro ménu</h1>";
+        
         mostrarMenu($articulos);
         mostrarMasVendidos($articulos);
         mostrarMasLucrativos($articulos);

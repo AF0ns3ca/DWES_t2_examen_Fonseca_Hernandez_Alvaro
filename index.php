@@ -25,6 +25,7 @@ $articulos = [
 
 function mostrarMenu($articulos)
 {
+    echo "<h1>Nuestro ménu</h1>";
     //utilizamos estos filtros para crear listas que tengan solo los elementos pertenecientes a cada clase
     $pizzas = array_filter($articulos, function ($item) {
         return $item instanceof Pizza;
@@ -60,7 +61,7 @@ function mostrarMasVendidos($articulos)
     });
 
     //Con esto lo que hacemos es sacar los 3 más vendidos, limitando a esas vueltas el bucle for aunque con la funcion usort ordenasemos toda la lista
-    echo "<h2>Los más vendidos</h2>";
+    echo "<h1>Los más vendidos</h1>";
     for ($i = 0; $i < 3; $i++) {
         echo $articulos[$i]->getNombre() . " - Vendidos: " . $articulos[$i]->getContador() . "<br>";
     }
@@ -85,7 +86,7 @@ function mostrarMasLucrativos($articulos)
 
 
     //Imprimimos por pantalla con el formato que queremos la lista de articulos que ahora esta ordenada segun el beneficio
-    echo "<h2>¡Los más lucrativos!</h2>";
+    echo "<h1>¡Los más lucrativos!</h1>";
     foreach ($articulos as $item) {
         //Hacemos la variable beneficio para no tener que escribir toda la expresion varias veces
         $beneficio = ($item->getPrecio() * $item->getContador()) - ($item->getCoste() * $item->getContador());
