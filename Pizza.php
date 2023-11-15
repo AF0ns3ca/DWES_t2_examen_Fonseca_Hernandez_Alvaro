@@ -2,12 +2,12 @@
 //Autor: Alvaro Fonseca Hernandez
 //GitHub: https://github.com/AF0ns3ca/DWES_t2_examen_Fonseca_Hernandez_Alvaro.git
 
-// Clase hija que hereda de Articulos
+// Clase hija que hereda de Articulo
 class Pizza extends Articulo
 {
     private $ingredientes;
 
-
+    //Declaracion del constructor con los elementos heredados de la clase padre ademas del nuevo elemento propio de esta clase
     public function __construct($nombre, $coste, $precio, $contador, $ingredientes)
     {
         parent::__construct($nombre, $coste, $precio, $contador);
